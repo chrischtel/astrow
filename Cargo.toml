@@ -1,6 +1,6 @@
 [package]
 name = "astroweather"
-version = "0.1.1"
+version = "0.1.0"
 edition = "2021"
 repository = "https://github.com/chrischtel/astrow"
 authors = ["Christian Brendlin <christian@brendlinonline.de"]
