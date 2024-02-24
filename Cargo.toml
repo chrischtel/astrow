@@ -1,6 +1,6 @@
 [package]
 name = "astroweather"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 repository = "https://github.com/chrischtel/astrow"
 authors = ["Christian Brendlin <christian@brendlinonline.de"]
@@ -31,6 +31,10 @@ ci = ["github"]
 # The installers to generate for each app
 installers = ["shell", "powershell", "msi"]
 # Target platforms to build apps for (Rust target-triple syntax)
-targets = ["aarch64-apple-darwin", "x86_64-apple-darwin", "x86_64-pc-windows-msvc"]
+targets = [
+    "aarch64-apple-darwin",
+    "x86_64-apple-darwin",
+    "x86_64-pc-windows-msvc",
+]
 # Publish jobs to run in CI
 pr-run-mode = "plan"
