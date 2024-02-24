@@ -1,8 +1,44 @@
 [package]
-name = "astrow"
+name = "astroweather"
 version = "0.1.0"
 edition = "2021"
+repository = "https://github.com/chrischtel/astrow"
+authors = ["Christian Brendlin <christian@brendlinonline.de"]
+description = "AstroWeather is a simple weather app that shows the current weather and the forecast for the next 7 days. It also shows the current moon phase and the sunrise and sunset times."
+license = "AGPL-3.0"
+
+[package.metadata.wix]
+upgrade-guid = "DACF1CA5-5198-4261-9CA9-49BE3C395BAC"
+path-guid = "C2B53DA4-B971-4F17-9EF2-DA52F34E1163"
+license = false
+eula = false
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+
+# The profile that 'cargo dist' will build with
+[profile.dist]
+inherits = "release"
+lto = "thin"
+
+# Config for 'cargo dist'
+[workspace.metadata.dist]
+# The preferred cargo-dist version to use in CI (Cargo.toml SemVer syntax)
+cargo-dist-version = "0.11.1"
+# CI backends to support
+ci = ["github"]
+# The installers to generate for each app
+installers = ["shell", "powershell", "homebrew", "msi"]
+# A GitHub repo to push Homebrew formulas to
+tap = "chrischtel/astrow"
+# Target platforms to build apps for (Rust target-triple syntax)
+targets = [
+    "aarch64-apple-darwin",
+    "x86_64-apple-darwin",
+    "x86_64-pc-windows-msvc",
+]
+# Publish jobs to run in CI
+publish-jobs = ["homebrew"]
+# Publish jobs to run in CI
+pr-run-mode = "plan"
