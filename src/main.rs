@@ -1,5 +1,4 @@
 use serde::Deserialize;
-use std::env;
 use std::io;
 #[tokio::main]
 async fn main() {
