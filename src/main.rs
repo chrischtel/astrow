@@ -25,7 +25,7 @@ fn init() -> String {
     
     io::stdin().read_line(&mut buffer).unwrap();
     
-    let api_key = std::option_env!("API").unwrap();
+    let api_key = std::option_env!("API_KEY").unwrap();
     println!("API Key: {}", api_key);
 
     let city = buffer.trim().to_string();
