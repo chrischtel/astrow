@@ -26,7 +26,8 @@ fn init() -> String {
     
     io::stdin().read_line(&mut buffer).unwrap();
     
-    let api_key = std::env::var("API_KEY").expect("API_KEY not found");
+    let api_key = std::option_env!("API").unwrap();
+    println!("API Key: {}", api_key);
 
     let city = buffer.trim().to_string();
     let url = format!("http://api.weatherstack.com/current?access_key={}&query={}", api_key, &city);
